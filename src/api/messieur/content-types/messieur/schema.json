@@ -4,7 +4,7 @@
   "info": {
     "singularName": "messieur",
     "pluralName": "messieurs",
-    "displayName": "propriétaire",
+    "displayName": "Messieurs",
     "description": ""
   },
   "options": {
@@ -17,9 +17,9 @@
     },
     "chapeaus": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::chapeau.chapeau",
-      "mappedBy": "proprietaire"
+      "mappedBy": "proprietaires"
     }
   }
 }

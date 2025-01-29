@@ -15,11 +15,21 @@
     "typedechapeau": {
       "type": "string"
     },
-    "proprietaire": {
+    "proprietaires": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::messieur.messieur",
       "inversedBy": "chapeaus"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
