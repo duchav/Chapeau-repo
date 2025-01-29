@@ -362,79 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiChapeauChapeau extends Schema.CollectionType {
-  collectionName: 'chapeaus';
-  info: {
-    singularName: 'chapeau';
-    pluralName: 'chapeaus';
-    displayName: 'Chapeau';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    typedechapeau: Attribute.String;
-    proprietaires: Attribute.Relation<
-      'api::chapeau.chapeau',
-      'manyToMany',
-      'api::messieur.messieur'
-    >;
-    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::chapeau.chapeau',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::chapeau.chapeau',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMessieurMessieur extends Schema.CollectionType {
-  collectionName: 'messieurs';
-  info: {
-    singularName: 'messieur';
-    pluralName: 'messieurs';
-    displayName: 'Messieurs';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    chapeaus: Attribute.Relation<
-      'api::messieur.messieur',
-      'manyToMany',
-      'api::chapeau.chapeau'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::messieur.messieur',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::messieur.messieur',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -861,6 +788,79 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiChapeauChapeau extends Schema.CollectionType {
+  collectionName: 'chapeaus';
+  info: {
+    singularName: 'chapeau';
+    pluralName: 'chapeaus';
+    displayName: 'Chapeau';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    typedechapeau: Attribute.String;
+    proprietaires: Attribute.Relation<
+      'api::chapeau.chapeau',
+      'manyToMany',
+      'api::messieur.messieur'
+    >;
+    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::chapeau.chapeau',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::chapeau.chapeau',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMessieurMessieur extends Schema.CollectionType {
+  collectionName: 'messieurs';
+  info: {
+    singularName: 'messieur';
+    pluralName: 'messieurs';
+    displayName: 'Messieurs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    chapeaus: Attribute.Relation<
+      'api::messieur.messieur',
+      'manyToMany',
+      'api::chapeau.chapeau'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::messieur.messieur',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::messieur.messieur',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -871,8 +871,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::chapeau.chapeau': ApiChapeauChapeau;
-      'api::messieur.messieur': ApiMessieurMessieur;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -881,6 +879,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::chapeau.chapeau': ApiChapeauChapeau;
+      'api::messieur.messieur': ApiMessieurMessieur;
     }
   }
 }
