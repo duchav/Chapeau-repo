@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chapeaus",
+  "info": {
+    "singularName": "chapeau",
+    "pluralName": "chapeaus",
+    "displayName": "Chapeau",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "typedechapeau": {
+      "type": "string"
+    },
+    "proprietaire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::messieur.messieur",
+      "inversedBy": "chapeaus"
+    }
+  }
+}

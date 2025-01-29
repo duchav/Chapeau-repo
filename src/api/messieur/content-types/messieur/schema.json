@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "messieurs",
+  "info": {
+    "singularName": "messieur",
+    "pluralName": "messieurs",
+    "displayName": "propriétaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "chapeaus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::chapeau.chapeau",
+      "mappedBy": "proprietaire"
+    }
+  }
+}
